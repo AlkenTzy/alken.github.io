@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pencarian Data Tabel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #searchInput {
+      padding: 8px;
+      width: 300px;
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px;
+      border: 1px solid #ddd;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>DAFTAR ID NYABU BY ALKENN</h2>
+  <h2>nyabu 2x lapor admin (al)</h2>
+  <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="cari id server">
+
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>id server</th>
+        <th>nickname</th>
+        <th>role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>belum ada</td>
+        <td>belum ada</td>
+        <td>belum ada</td>
+      </tr>
+      <tr>
+        <td>belum ada</td>
+        <td>belum ada</td>
+        <td>belum ada</td>
+      </tr>
+      <tr>
+        <td>belum ada</td>
+        <td>belum ada</td>
+        <td>belum ada</td>
+      </tr>
+      <tr>
+        <td>belum ada</td>
+        <td>belum ada</td>
+        <td>belum ada</td>
+      </tr>
+      <tr>
+        <td>belum ada</td>
+        <td>belum ada</td>
+        <td>belum ada</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    function searchTable() {
+      const input = document.getElementById("searchInput");
+      const filter = input.value.toLowerCase();
+      const table = document.getElementById("dataTable");
+      const trs = table.getElementsByTagName("tr");
+
+      for (let i = 1; i < trs.length; i++) {
+        const tds = trs[i].getElementsByTagName("td");
+        let found = false;
+        for (let j = 0; j < tds.length; j++) {
+          if (tds[j].textContent.toLowerCase().indexOf(filter) > -1) {
+            found = true;
+            break;
+          }
+        }
+        trs[i].style.display = found ? "" : "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
